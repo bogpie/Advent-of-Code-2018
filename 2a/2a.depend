@@ -1,5 +1,0 @@
-# depslib dependency file v1.0
-1543730437 source:c:\scoala\info\advent of code 2018\2a\main.cpp
-	<fstream>
-	<cstring>
-
