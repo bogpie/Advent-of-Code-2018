@@ -5,7 +5,7 @@ using namespace std;
 ifstream fin ("10.in");
 ofstream fout("10.out");
 
-const int NPT=11111,POZMIN=-99999,POZMAX=99999,POZAF=1001;
+const int NPT=11111,POZMIN=-211111,POZMAX=211111,POZAF=1001;
 int x,y,velx,vely,ipt,npt,i,j,sec,xmax,ymax,xmin,ymin;
 int xxmin,yymin,xxmax,yymax;
 int tab[POZAF][POZAF];
