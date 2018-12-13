@@ -250,13 +250,14 @@ int main()
 
             ++icart;
 
-            if (ncart==1) /// one cart left, print its coordinates
-            {
-                fout << vcart[0].y << ',' << vcart[0].x <<'\n';
-                return 0;
-            }
         }
 
+
+        if (ncart==1) /// one cart left, print its coordinates
+        {
+            fout << vcart[0].y << ',' << vcart[0].x <<'\n';
+            return 0;
+        }
 
     }
 
