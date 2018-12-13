@@ -224,8 +224,7 @@ int main()
                 jcart=already[xx][yy];
                 already[xx][yy]=-1;
 
-                /// use this for part 1 :
-               //fout << "part1: " << yy << ',' << xx ; return 0;
+                fout << "part 1: " << yy << ',' << xx << '\n' ; //return 0;
 
                 takeout(max(icart,jcart));
                 takeout(min(jcart,icart)); /// remove the carts
@@ -255,7 +254,7 @@ int main()
 
         if (ncart==1) /// one cart left, print its coordinates
         {
-            fout << vcart[0].y << ',' << vcart[0].x <<'\n';
+            fout << "part 2:" << vcart[0].y << ',' << vcart[0].x <<'\n';
             return 0;
         }
 
