@@ -17,7 +17,7 @@ int vcartdir[NCH],already[NLINES][NCOLS];
 int i,j,length,ncart,icart, xx,yy,x,y,mem,dir;
 int ticks,jcart,x1,x2,y1,y2;
 
-bool iscart[NCH+1];
+bool iscart[NCH+1],part1done;
 
 struct cartstruct
 {
@@ -224,7 +224,11 @@ int main()
                 jcart=already[xx][yy];
                 already[xx][yy]=-1;
 
-                fout << "part 1: " << yy << ',' << xx << '\n' ; //return 0;
+                if (!part1done)
+                {
+                    fout << "part 1: " << yy << ',' << xx << '\n' ; //return 0;
+                    part1done=1;
+                }
 
                 takeout(max(icart,jcart));
                 takeout(min(jcart,icart)); /// remove the carts
@@ -254,7 +258,7 @@ int main()
 
         if (ncart==1) /// one cart left, print its coordinates
         {
-            fout << "part 2:" << vcart[0].y << ',' << vcart[0].x <<'\n';
+            fout << "part 2: " << vcart[0].y << ',' << vcart[0].x <<'\n';
             return 0;
         }
 
