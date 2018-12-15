@@ -4,8 +4,8 @@
 
 using namespace std;
 
-ifstream fin ("p13.in");
-ofstream fout("p13.out");
+ifstream fin ("d13.in");
+ofstream fout("d13.out");
 
 const int NLINES=160,NCOLS=160,NCARTS=29,NCH=500;
 
@@ -266,4 +266,3 @@ int main()
 
     return 0;
 }
-
