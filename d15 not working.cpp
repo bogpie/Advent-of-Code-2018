@@ -121,29 +121,6 @@ void tryattack(int iunit,int &lowunit,int &numold)
 
     }
 }
-
-
-void revlee (int &x,int &y)
-{
-    int num=mat[x][y].num;
-
-    while (num>1)
-    {
-        for (int idir=0; idir<4; ++idir)
-        {
-            int xx=x+dx[idir];
-            int yy=y+dy[idir];
-            if (mat[xx][yy].num==num-1)
-            {
-                x=xx;
-                y=yy;
-                --num;
-                break;
-            }
-        }
-    }
-}
-
 void lee (int x,int y)
 {
     deq.clear();
@@ -162,14 +139,11 @@ void lee (int x,int y)
             int xx=x+dx[idir];
             int yy=y+dy[idir];
 
+
             if (!mat[xx][yy].num)
             {
                 mat[xx][yy].num=num+1;
                 deq.push_back({xx,yy,num+1});
-            }
-            else if (mat[xx][yy].num==enemy)
-            {
-                return;
             }
         }
         ++num;
@@ -220,12 +194,32 @@ void af3()
     }
     fout << '\n';
 }
+
+void aflee()
+{
+    //fout << "After Round" << ' ' << nround-1 << '\n';
+    for (int ilin=0; ilin<nlin; ++ilin)
+    {
+
+        for (int icol=0; icol<nlin; ++icol)
+        {
+            if (mat[ilin][icol].num>=0 && mat[ilin][icol].num<=9)
+            {
+                fout <<' ';
+            }
+            fout << mat[ilin][icol].num << ' ';
+
+        }
+        fout <<'\n';
+    }
+    fout << '\n';
+}
 int main()
 {
     nlin=NLIN;
     ncol=NCOL;
-    //nlin=7;ncol=7;
-    //nlin=9;ncol=9;
+   // nlin=7;ncol=7;
+   // nlin=9;ncol=9;
     for (ilin=0; ilin<nlin; ++ilin)
     {
         for (icol=0; icol<ncol; ++icol)
@@ -270,17 +264,20 @@ int main()
     while (1)
     {
         ++nround;
-
-
-
         sort (vunit.begin(),vunit.end(),cmp);
 
-        af();
-        af3();
+
+        //if (nround>=109)
+        {
+             af();
+            af3();
+
+        }
 
         nunit=vunit.size();
         for (iunit=0; iunit<nunit; ++iunit)
         {
+
             numold=-4;
             lowunit=-1;
             tryattack(iunit,lowunit,numold);
@@ -296,7 +293,6 @@ int main()
 
                 if (!nelf || !ngobl)
                 {
-
                     af();
                     af3();
 
@@ -327,9 +323,8 @@ int main()
 
 
             fclear();
-
-
             lee(x1,y1);
+
             minnum=MAXNUM;
             xnear=ynear=-1;
             for (junit=0; junit<nunit; ++junit)
@@ -367,7 +362,30 @@ int main()
             {
                 continue;
             }
-            revlee(xnear,ynear);
+            fclear();
+            lee(xnear,ynear);
+            minnum=MAXNUM;
+            for (idir=0; idir<4; ++idir)
+            {
+                xx1=x1+dx[idir];
+                yy1=y1+dy[idir];
+                num1=mat[xx1][yy1].num;
+                if (num1<minnum && num1>0)
+                {
+                    minnum=num1;
+                    xnear=xx1;
+                    ynear=yy1;
+                }
+                else if(num2==minnum)
+                {
+                    if (!cmp2(xnear,ynear,xx1,yy1))
+                    {
+                        xnear=xx1;
+                        ynear=yy1;
+                    }
+                }
+            }
+
             xx1=vunit[iunit].x=xnear;
             yy1=vunit[iunit].y=ynear;
             mat[xx1][yy1].num=mat[x1][y1].num;
