@@ -224,7 +224,8 @@ int main()
 {
     nlin=NLIN;
     ncol=NCOL;
-    nlin=7;ncol=7;
+    //nlin=7;ncol=7;
+    //nlin=9;ncol=9;
     for (ilin=0; ilin<nlin; ++ilin)
     {
         for (icol=0; icol<ncol; ++icol)
@@ -270,10 +271,7 @@ int main()
     {
         ++nround;
 
-        if (nround==44)
-        {
-            int aux=1;
-        }
+
 
         sort (vunit.begin(),vunit.end(),cmp);
 
@@ -284,11 +282,16 @@ int main()
         for (iunit=0; iunit<nunit; ++iunit)
         {
             numold=-4;
+            lowunit=-1;
             tryattack(iunit,lowunit,numold);
             if (vunit.size()!=nunit)
             {
                 recount(numold);
-                --iunit;
+
+                if (lowunit<iunit)
+                {
+                    --iunit;
+                }
                 nunit=vunit.size();
 
                 if (!nelf || !ngobl)
@@ -378,7 +381,12 @@ int main()
             {
                 nunit=vunit.size();
                 recount(numold);
-                --iunit;
+
+                if (lowunit<iunit)
+                {
+                    --iunit;
+                }
+
                 if (!nelf || !ngobl)
                 {
                     if (iunit!=nunit-1)
@@ -402,4 +410,5 @@ int main()
 
     return 0;
 }
+
 
