@@ -149,7 +149,7 @@ void setiscart()
     iscart['<']=1;
 }
 
-void setcartdir()
+void setcartdir() // each cart type has a specific direction,0 is north/up, 1 is south, 2 west, 3 east
 {
     vcartdir['<']=3;
     vcartdir['>']=2;
