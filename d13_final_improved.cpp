@@ -166,7 +166,7 @@ int main()
     setcartdir(); /// assign a direction to each cart. 0 is north/up, 1 is south, 2 west, 3 east
 
     i=j=0;
-    while (fin.getline(world[i],201)) /// read each line
+    while (fin.getline(world[i],201)) /// read each line 
     {
         length=strlen(world[i]);
         for (j=0; j<length; ++j)
