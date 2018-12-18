@@ -1,4 +1,5 @@
 #include <fstream>
+#include <cstring>
 #include <vector>
 
 using namespace std;
@@ -7,7 +8,7 @@ ifstream fin ("p14.in");
 ofstream fout("p14.out");
 
 const int NELF=2,NMAX=99999999;
-char v[NMAX+2];
+char *pt,v[NMAX+2];
 int n,sum,ncrt,i,vpoz[NELF+2];
 
 int main()
@@ -35,7 +36,8 @@ int main()
         vpoz[1]=(vpoz[1]+v[vpoz[1]]-'0'+1)%ncrt;
     }
 
-    fout << v;
-
+    //fout << v;
+    pt=strstr(v,"236021");
+    fout << pt-v;
     return 0;
 }
