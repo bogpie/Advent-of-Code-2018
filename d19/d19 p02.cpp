@@ -295,6 +295,7 @@ int main()
         a=vevent[ip].a;
         b=vevent[ip].b;
         c=vevent[ip].c;
+
         foper(ioper,a,b,c);
         ip=vreg[regbound];
 
@@ -308,7 +309,7 @@ int main()
 
             ++naf;
 
-            if(naf==111)
+            if(naf==2)
             {
                 break;
             }
@@ -317,7 +318,8 @@ int main()
         ++ip;
     }
 
-    num=vreg[4];
+    fout << vreg[4] << '\n';
+    num=10551387;
     for (idiv=1;idiv<=num;++idiv)
     {
         if (num%idiv==0)
