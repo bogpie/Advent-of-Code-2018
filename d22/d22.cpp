@@ -152,18 +152,7 @@ int main()
 
             if (linnew>=0 && colnew>=0 && tool!=matregtype[linnew][colnew] && !isbrowsed[linnew][colnew][tool])
             {
-                timeold=mattime[linnew][colnew][tool];
-
-
-                if (timenew<timeold || !timeold)
-                {
-                    if (timenew<timeold)
-                    {
-                        squ.erase(make_pair(timeold,make_tuple(linnew,colnew,tool)));
-                    }
-                    squ.insert(make_pair(timenew,make_tuple(linnew,colnew,tool)));
-                }
-
+                squ.insert(make_pair(timenew,make_tuple(linnew,colnew,tool)));
             }
         }
 
@@ -172,18 +161,7 @@ int main()
             timenew=time+7;
             if (itool!=tool && itool!=matregtype[lin][col] && !isbrowsed[lin][col][itool])
             {
-
-                timeold=mattime[lin][col][itool];
-
-                if (timenew<timeold || !timeold)
-                {
-                    if (timenew<timeold)
-                    {
-                        squ.erase(make_pair(timeold,make_tuple(lin,col,itool)));
-                    }
-
-                    squ.insert(make_pair(timenew,make_tuple(lin,col,itool)));
-                }
+                squ.insert(make_pair(timenew,make_tuple(lin,col,itool)));
             }
 
         }
