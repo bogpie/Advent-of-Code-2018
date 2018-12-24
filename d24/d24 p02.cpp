@@ -278,7 +278,7 @@ int main()
         attacking();
         if (!stilldamaging)
         {
-            fout << "Schrodinger's deer !! No team wins !" << "\n";
+            fout << "Schrodinger's reindeer !! No team wins !" << "\n";
             return 0;
         }
     }
