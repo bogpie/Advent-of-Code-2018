@@ -18,7 +18,7 @@ int iround,nwinner,nkilled;
 int ialivegroup;
 int dmgboost=38; /// part 1, dmgboost=0;
 char vchr[LG+3],chr;
-bool fighton,isdead[NARMY+3][NGROUP+3],isdmgtype[ALLCHR];
+bool fighton,isdead[NARMY+3][NGROUP+3],isdmgtype[ALLCHR],stilldamaging;
 
 
 struct sctalivegroup
@@ -104,6 +104,8 @@ void attacking()
         {
             continue;
         }
+
+        stilldamaging=1;
 
         defchosen=varmy[att.iarmy][att.igroup].defchosen;
         varmy[defchosen.iarmy][defchosen.igroup].nunit-=nkilled;
@@ -270,9 +272,15 @@ int main()
     while (fighton)
     {
         ++iround;
+        stilldamaging=0;
         targetselection();
         if (!fighton) break;
         attacking();
+        if (!stilldamaging)
+        {
+            fout << "Schrodinger's reindeer !! No team wins !" << "\n";
+            return 0;
+        }
     }
 
     fout <<"Winner army : " << valivegroup[1].iarmy << "\n";
