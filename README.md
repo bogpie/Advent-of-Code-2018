@@ -1,4 +1,4 @@
-I've solved the challanges in C++, each solution is a .cpp file.
+I've solved the challenges in C++, each solution is a .cpp file.
 Every folder has the title structured as dXX, XX being the ID of the day :  01,02,...,25
 In each folder, the solutions are titled as :
 - dXX (contains both parts of the day problem) 
