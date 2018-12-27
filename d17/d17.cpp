@@ -9,7 +9,7 @@ ofstream fout("d17.out");
 
 const int LGSTR=101, XMAX=700,YMAX=2000,NPOINT=1673;
 char str[LGSTR+2];
-int xmin=XMAX+1,xmax=-1,ymin=YMAX+1,ymax=-1; /// todo check if 0
+int xmin=XMAX+1,xmax=-1,ymin=YMAX+1,ymax=-1;
 int x1,x2,y1,y2,ipoint,npoint,i,j,solsettled,solflowing;
 char mat[YMAX+10][XMAX+10];
 
@@ -78,11 +78,7 @@ void pour (int y,int x)
         mat[y][x]='|';
         return;
     }
-  /*  if ( isdry(mat[y+1][x]) && !isdry(mat[y+1][x+1]) && !isdry(mat[y+1][x-1]))
-    {
-        mat[y][x]='|';
-        return;
-    }*/
+
     if (mat[y+1][x]=='.')
     {
         pour(y+1,x);
