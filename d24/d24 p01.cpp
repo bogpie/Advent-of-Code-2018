@@ -1,5 +1,4 @@
 /// add -1 before Infection:
-/// sometimes no brackets !!
 
 #include <fstream>
 #include <cstring>
