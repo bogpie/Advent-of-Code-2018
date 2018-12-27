@@ -3,26 +3,42 @@
 
 using namespace std;
 
-ifstream fin ("p12.in");
-ofstream fout("p12.out");
+ifstream fin ("d12.in");
+ofstream fout("d12.out");
 
 char car;
 char sir[999],stcave[999],turn[999];
 char vturn[999][999];
+char vdots[404];
 
-long long nturn,lgcave,euro2020,igen,icave,icap,iturn,mk,itrue,sol,ngen,solold;
+long long nturn,lgcave,euro2020,igen,icave,icap,iturn,mk,itrue,sol,ngen,solold,idots;
 long long BIG=50000000000;
 
 bool gas;
 bool markdot[999];
 bool isdot[999];
 
+
+void parse_and_border_with_dots()
+{
+    fin >> sir >> sir;
+
+    for (idots=0;idots<400;++idots)
+    {
+        vdots[idots]='.';
+    }
+
+    strcpy(stcave,vdots);
+    fin >> stcave+400;
+    lgcave=strlen(stcave);
+    strcpy(stcave+lgcave,vdots);
+}
+
+
 int main()
 {
-    /// bordare manuala input !!
 
-    fin >> sir >> sir;
-    fin >> stcave;
+    parse_and_border_with_dots();
 
     nturn=1;
     while (fin>>vturn[nturn])
@@ -43,7 +59,7 @@ int main()
     ngen=400;
 
 
-    for (igen=1;igen<=ngen;++igen)
+    for (igen=1;igen<=ngen-3;++igen)
     {
         for (icave=0;icave<lgcave;++icave)
         {
